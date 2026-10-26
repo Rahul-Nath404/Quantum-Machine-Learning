@@ -90,9 +90,9 @@ This repository hosts an Advanced Quantum Machine Learning (QML) project designe
 
 ## Contact & License
 
-- **Author:** Ahmad Rasidi 
-- **Email:** rasidi.basit@gmail.com  
-- **GitHub:** [https://github.com/rasidi3112](https://github.com/rasidi3112)  
+- **Maintainer:** [@Rahul-Nath404](https://github.com/Rahul-Nath404)
+- **Original author:** Ahmad Rasidi
+- **Original author contact:** [rasidi.basit@gmail.com](mailto:rasidi.basit@gmail.com) · [@rasidi3112](https://github.com/rasidi3112)
 
 **License:** MIT License  
 
@@ -130,7 +130,7 @@ qml_app/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/rasidi3112/Quantum-Machine-Learning.git
+git clone https://github.com/Rahul-Nath404/Quantum-Machine-Learning.git
 cd Quantum-Machine-Learning
 ```
   
@@ -220,7 +220,6 @@ python3 artifacts/vqc/convert_pt_to_json.py
 ```bash
 python generate_boxplots.py
 ```
-
 
 
 
