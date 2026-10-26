@@ -168,6 +168,17 @@ python -m qml_app.main train --model kernel --config config/default.yaml
 ```
 
 > **Tip:** Modify `config/default.yaml` to change datasets, qubits, layers, batch size, etc.
+
+Both commands use `data.random_state` as the default global seed. Override it with
+`--seed` to repeat an experiment with a different seed:
+
+```bash
+python -m qml_app.main train --model vqc --seed 123
+python -m qml_app.main evaluate --model vqc --seed 123
+```
+
+VQC training saves the weights from the epoch with the lowest validation loss,
+not necessarily the final epoch.
   
 
 ### 5. Evaluate Models
@@ -220,6 +231,5 @@ python3 artifacts/vqc/convert_pt_to_json.py
 ```bash
 python generate_boxplots.py
 ```
-
 
 

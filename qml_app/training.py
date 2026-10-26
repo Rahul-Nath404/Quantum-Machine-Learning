@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 from pathlib import Path
 from typing import Dict, List
@@ -118,7 +119,7 @@ def train_variational_model(
 
             if val_loss + config.min_delta < best_val_loss:
                 best_val_loss = val_loss
-                best_state_dict = model.state_dict()
+                best_state_dict = copy.deepcopy(model.state_dict())
                 patience_counter = 0
             else:
                 patience_counter += 1

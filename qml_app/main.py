@@ -34,9 +34,9 @@ def train(
     cfg = load_config(config)
     logger = init_logger()
 
-    if seed is not None:
-        set_global_seed(seed)
-        logger.info(f"Seed global disetel ke {seed}")
+    effective_seed = cfg.data.random_state if seed is None else seed
+    set_global_seed(effective_seed)
+    logger.info(f"Seed global disetel ke {effective_seed}")
 
     data_module = QuantumDataModule(cfg.data)
     data_module.prepare_data()
@@ -107,9 +107,14 @@ def evaluate(
     model: str = typer.Option("vqc", "--model", "-m"),
     config: Path = typer.Option("config/default.yaml", "--config", "-c", exists=True),
     weight_path: Optional[Path] = typer.Option(None, help="Path bobot/model khusus."),
+    seed: Optional[int] = typer.Option(None, help="Seed random global."),
 ):
     cfg = load_config(config)
     logger = init_logger()
+    effective_seed = cfg.data.random_state if seed is None else seed
+    set_global_seed(effective_seed)
+    logger.info(f"Seed global disetel ke {effective_seed}")
+
     data_module = QuantumDataModule(cfg.data)
     data_module.prepare_data()
 
